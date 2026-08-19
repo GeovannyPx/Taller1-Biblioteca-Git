@@ -171,4 +171,25 @@ public class Main {
 
         System.out.println("Book not found.");
     }
+    public static void updateBook() {
+        System.out.print("Enter book ID to update: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        for (Book book : books) {
+            if (book.getBookId() == id) {
+
+                System.out.print("Enter new title: ");
+                book.setTitle(scanner.nextLine());
+
+                System.out.print("Enter new author: ");
+                book.setAuthor(scanner.nextLine());
+
+                System.out.println("Book updated successfully.");
+                return;
+            }
+        }
+
+        System.out.println("Book not found.");
+    }
 }
