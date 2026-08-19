@@ -6,7 +6,9 @@ import java.util.Scanner;
 public class Main {
 
     static ArrayList<Client> clients = new ArrayList<>();
+    static ArrayList<Book> books = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         createClient();
         listClients();
@@ -120,5 +122,22 @@ public class Main {
         }
 
         System.out.println("Client not found.");
+    }
+    public static void createBook() {
+        System.out.print("Enter book ID: ");
+        int bookId = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Enter title: ");
+        String title = scanner.nextLine();
+
+        System.out.print("Enter author: ");
+        String author = scanner.nextLine();
+
+        Book book = new Book(bookId, title, author, true);
+
+        books.add(book);
+
+        System.out.println("Book created successfully.");
     }
 }
