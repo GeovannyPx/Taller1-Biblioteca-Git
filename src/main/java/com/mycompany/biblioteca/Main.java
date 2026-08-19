@@ -154,4 +154,21 @@ public class Main {
             System.out.println("--------------------");
         }
     }
+    public static void findBook() {
+        System.out.print("Enter book ID to search: ");
+        int id = scanner.nextInt();
+
+        for (Book book : books) {
+            if (book.getBookId() == id) {
+                System.out.println("Book found:");
+                System.out.println("ID: " + book.getBookId());
+                System.out.println("Title: " + book.getTitle());
+                System.out.println("Author: " + book.getAuthor());
+                System.out.println("Available: " + book.isAvailable());
+                return;
+            }
+        }
+
+        System.out.println("Book not found.");
+    }
 }
