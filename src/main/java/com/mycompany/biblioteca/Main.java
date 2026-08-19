@@ -82,7 +82,7 @@ public class Main {
             }
 
         } while (option != 0);
-    }1
+    }
     public static void createClient() {
 
         System.out.print("Enter client ID: ");
@@ -226,7 +226,7 @@ public class Main {
 
         for (Book book : books) {
             System.out.println("----------------------------");
-            System.out.println("Book ID: " + book.getBookId());
+            System.out.println("Book ID: " + book.getMaterialId());
             System.out.println("Title: " + book.getTitle());
             System.out.println("Author: " + book.getAuthor());
             System.out.println("Available: " + book.isAvailable());
@@ -242,9 +242,9 @@ public class Main {
 
         for (Book book : books) {
 
-            if (book.getBookId() == bookId) {
+            if (book.getMaterialId() == bookId) {
                 System.out.println("Book found:");
-                System.out.println("ID: " + book.getBookId());
+                System.out.println("ID: " + book.getMaterialId());
                 System.out.println("Title: " + book.getTitle());
                 System.out.println("Author: " + book.getAuthor());
                 System.out.println("Available: " + book.isAvailable());
@@ -262,7 +262,7 @@ public class Main {
 
         for (Book book : books) {
 
-            if (book.getBookId() == bookId) {
+            if (book.getMaterialId() == bookId) {
 
                 System.out.print("Enter new title: ");
                 book.setTitle(scanner.nextLine());
@@ -285,7 +285,7 @@ public class Main {
 
         for (Book book : books) {
 
-            if (book.getBookId() == bookId) {
+            if (book.getMaterialId() == bookId) {
                 books.remove(book);
                 System.out.println("Book deleted successfully.");
                 return;
