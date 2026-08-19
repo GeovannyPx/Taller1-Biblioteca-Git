@@ -59,4 +59,25 @@ public class Main {
 
         System.out.println("----------------------------");
     }
+    public static void findClient() {
+
+        System.out.print("Enter client ID: ");
+        int clientId = scanner.nextInt();
+        scanner.nextLine();
+
+        for (Client client : clients) {
+
+            if (client.getClientId() == clientId) {
+                System.out.println("Client found:");
+                System.out.println("ID: " + client.getClientId());
+                System.out.println("Name: " + client.getName());
+                System.out.println("Identification: " + client.getIdentification());
+                System.out.println("Phone: " + client.getPhone());
+                System.out.println("Email: " + client.getEmail());
+                return;
+            }
+        }
+
+        System.out.println("Client not found.");
+    }
 }
