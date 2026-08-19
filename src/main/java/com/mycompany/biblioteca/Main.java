@@ -1,17 +1,124 @@
 package com.mycompany.biblioteca;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.ArrayList;
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+
+    static ArrayList<Client> clients = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        createClient();
+        listClients();
+    }
+    public static void createClient() {
+
+        System.out.print("Enter client ID: ");
+        int clientId = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter identification: ");
+        String identification = scanner.nextLine();
+
+        System.out.print("Enter phone: ");
+        String phone = scanner.nextLine();
+
+        System.out.print("Enter email: ");
+        String email = scanner.nextLine();
+
+        Client client = new Client(
+                clientId,
+                name,
+                identification,
+                phone,
+                email
+        );
+
+        clients.add(client);
+
+        System.out.println("Client created successfully.");
+    }
+    public static void listClients() {
+
+        if (clients.isEmpty()) {
+            System.out.println("No clients registered.");
+            return;
         }
+
+        for (Client client : clients) {
+            System.out.println("----------------------------");
+            System.out.println("Client ID: " + client.getClientId());
+            System.out.println("Name: " + client.getName());
+            System.out.println("Identification: " + client.getIdentification());
+            System.out.println("Phone: " + client.getPhone());
+            System.out.println("Email: " + client.getEmail());
+        }
+
+        System.out.println("----------------------------");
+    }
+    public static void findClient() {
+
+        System.out.print("Enter client ID: ");
+        int clientId = scanner.nextInt();
+        scanner.nextLine();
+
+        for (Client client : clients) {
+
+            if (client.getClientId() == clientId) {
+                System.out.println("Client found:");
+                System.out.println("ID: " + client.getClientId());
+                System.out.println("Name: " + client.getName());
+                System.out.println("Identification: " + client.getIdentification());
+                System.out.println("Phone: " + client.getPhone());
+                System.out.println("Email: " + client.getEmail());
+                return;
+            }
+        }
+
+        System.out.println("Client not found.");
+    }
+    public static void updateClient() {
+        System.out.print("Enter client ID to update: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        for (Client client : clients) {
+            if (client.getClientId() == id) {
+
+                System.out.print("Enter new name: ");
+                client.setName(scanner.nextLine());
+
+                System.out.print("Enter new identification: ");
+                client.setIdentification(scanner.nextLine());
+
+                System.out.print("Enter new phone: ");
+                client.setPhone(scanner.nextLine());
+
+                System.out.print("Enter new email: ");
+                client.setEmail(scanner.nextLine());
+
+                System.out.println("Client updated successfully.");
+                return;
+            }
+        }
+
+        System.out.println("Client not found.");
+    }
+    public static void deleteClient() {
+        System.out.print("Enter client ID to delete: ");
+        int id = scanner.nextInt();
+
+        for (Client client : clients) {
+            if (client.getClientId() == id) {
+                clients.remove(client);
+                System.out.println("Client deleted successfully.");
+                return;
+            }
+        }
+
+        System.out.println("Client not found.");
     }
 }
