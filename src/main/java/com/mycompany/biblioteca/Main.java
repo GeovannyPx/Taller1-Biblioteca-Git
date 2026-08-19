@@ -140,4 +140,18 @@ public class Main {
 
         System.out.println("Book created successfully.");
     }
+    public static void listBooks() {
+        if (books.isEmpty()) {
+            System.out.println("No books registered.");
+            return;
+        }
+
+        for (Book book : books) {
+            System.out.println("ID: " + book.getBookId());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Available: " + book.isAvailable());
+            System.out.println("--------------------");
+        }
+    }
 }
