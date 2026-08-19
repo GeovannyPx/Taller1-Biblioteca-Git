@@ -80,4 +80,31 @@ public class Main {
 
         System.out.println("Client not found.");
     }
+    public static void updateClient() {
+        System.out.print("Enter client ID to update: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        for (Client client : clients) {
+            if (client.getClientId() == id) {
+
+                System.out.print("Enter new name: ");
+                client.setName(scanner.nextLine());
+
+                System.out.print("Enter new identification: ");
+                client.setIdentification(scanner.nextLine());
+
+                System.out.print("Enter new phone: ");
+                client.setPhone(scanner.nextLine());
+
+                System.out.print("Enter new email: ");
+                client.setEmail(scanner.nextLine());
+
+                System.out.println("Client updated successfully.");
+                return;
+            }
+        }
+
+        System.out.println("Client not found.");
+    }
 }
